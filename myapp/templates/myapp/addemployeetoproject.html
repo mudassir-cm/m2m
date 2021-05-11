@@ -1,0 +1,18 @@
+<form method="post" action="/myapp/project/addemployeetoproject/{{ pro.id }}">
+    {% csrf_token %}
+    {% for e in emp %}
+    {% if e in pro %}
+    <label>{{ e.name }}</label>
+    <input name="employees" type="checkbox" value="{{ e.id }}">
+    <br>
+    {% else %}
+    <label>{{ e.name }}</label>
+    <input checked name="employees" type="checkbox" value="{{ e.id }}">
+    <br>
+    {% endif %}
+    {% endfor %}
+
+    <input type="submit" value="Update">
+
+
+</form>

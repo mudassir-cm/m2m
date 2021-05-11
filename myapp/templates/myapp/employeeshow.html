@@ -1,0 +1,25 @@
+<h2>Employee show</h2>
+{% if list %}
+<table>
+    <tr>
+        <th>Name</th>
+        <th>City</th>
+    </tr>
+    {% for emp in list %}
+    <tr>
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.city }}</td>
+        <td>
+            <a href="/myapp/employee/edit/{{ emp.id }}">Edit</a>
+        </td>
+        <td>
+            <a href="/myapp/employee/delete/{{ emp.id }}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<h1>there is no Employee yet</h1>
+{% endif %}
+
+<a href="/">Home</a>

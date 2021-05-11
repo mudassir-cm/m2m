@@ -1,0 +1,22 @@
+Project Name <div>{{ pro.name }}</div><br>
+Project Type <div>{{ pro.type }}</div>
+
+{% if pro.employees == empty %}
+<table>
+    <tr>
+        <th>Name</th>
+        <th>City</th>
+    </tr>
+    {% for p in pro.employees.all %}
+    <tr>
+        <td>p.name</td>
+        <td>p.city</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<h2>There is no Employee working on this {{ pro.name }}</h2>
+<p>
+    <a href="/myapp/project/addemployeetoproject/{{pro.id}}">Add</a>
+</p>
+{% endif %}

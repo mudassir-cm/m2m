@@ -1,0 +1,19 @@
+<h2>Project Create</h2>
+<form method="post" action="/myapp/project/create">
+    {% csrf_token %}
+    <div>
+        <label>Name</label>
+        <div>{{ pro.name }}</div>
+    </div>
+    <div>
+        <label>Type</label>
+        <div>{{ pro.type }}</div>
+    </div>
+    <div>
+        <label>Emploees</label>
+        <div>{{ pro.employees }}</div>
+    </div>
+    <div>
+        <input type="submit" value="Create">
+    </div>
+</form>

@@ -1,0 +1,28 @@
+<h2>Project show</h2>
+{% if list %}
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+    </tr>
+    {% for p in list %}
+    <tr>
+        <td>{{ p.name }}</td>
+        <td>{{ p.type }}</td>
+        <td>
+            <a href="/myapp/project/edit/{{ p.id }}">Edit</a>
+        </td>
+        <td>
+            <a href="/myapp/project/delete/{{ p.id }}">Delete</a>
+        </td>
+        <td>
+            <a href="/myapp/project/view/{{ p.id }}">View</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<h1>ther is no cast</h1>
+{% endif %}
+
+<a href="/">Home</a>
