@@ -3,11 +3,11 @@
     {% for e in emp %}
     {% if e in pro %}
     <label>{{ e.name }}</label>
-    <input name="employees" type="checkbox" value="{{ e.id }}">
+    <input checked name="employees" type="checkbox" value="{{ e.id }}">
     <br>
     {% else %}
     <label>{{ e.name }}</label>
-    <input checked name="employees" type="checkbox" value="{{ e.id }}">
+    <input name="employees" type="checkbox" value="{{ e.id }}">
     <br>
     {% endif %}
     {% endfor %}
