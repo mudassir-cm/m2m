@@ -43,6 +43,7 @@ def addemployeetoproject(request, id):
         pro = ProjectForm(request.POST, instance=project)
         pro.save()
         return redirect('/myapp/project/view')
+       # return redirect(request.path)
     else:
         emp = Employee.objects.all()
         pro = Project.objects.get(id = id)
