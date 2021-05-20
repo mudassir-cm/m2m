@@ -1,0 +1,15 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+<form method="post" action="/myapp/employee/update/{{ emp.id }}">
+    {% csrf_token %}
+    <div>
+        <label>Name</label>
+        <input type="text" name="name" value="{{ emp.name }}">
+    </div>
+    <div>
+        <label>City</label>
+        <input type="text" name="city" value="{{ emp.city }}">
+    </div>
+    <input type="submit" value="Update">
+</form>
+{% endblock %}

@@ -1,3 +1,5 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
 <h2>Employee show</h2>
 {% if list %}
 <table>
@@ -10,10 +12,13 @@
         <td>{{ emp.name }}</td>
         <td>{{ emp.city }}</td>
         <td>
-            <a href="/myapp/employee/edit/{{ emp.id }}">Edit</a>
+            <a href="/myapp/employee/update/{{ emp.id }}">Edit</a>
         </td>
         <td>
             <a href="/myapp/employee/delete/{{ emp.id }}">Delete</a>
+        </td>
+        <td>
+            <a href="/myapp/employee/view/{{ emp.id }}">View</a>
         </td>
     </tr>
     {% endfor %}
@@ -21,5 +26,10 @@
 {% else %}
 <h1>there is no Employee yet</h1>
 {% endif %}
+{% if messages %}
+{% for message in messages %}
+<small {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</small>
+{% endfor %}
+{% endif %}
 
-<a href="/">Home</a>
+{% endblock %}

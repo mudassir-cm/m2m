@@ -1,0 +1,26 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+<label>Name</label> {{ emp.name }}<br>
+<label>City</label> {{ emp.city }} <br>
+
+{% if emp.projects.all %}
+<h2>List of project(s) on which {{ emp.name }} currently working</h2>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+    </tr>
+    {% for p in emp.projects.all %}
+    <tr>
+        <td>{{ p.name }}</td>
+        <td>{{ p.type }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<h2>{{ emp.name }} is not curently working any project yet</h2>
+{% endif %}
+<p>
+    <a href="/myapp/employee/asignprojecttoemployee/{{ emp.id }}">Asign or unasign projects</a>
+</p>
+{% endblock %}

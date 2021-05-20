@@ -1,3 +1,5 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
 Project Name <div>{{ pro.name }}</div><br>
 Project Type <div>{{ pro.type }}</div>
 
@@ -21,3 +23,4 @@ Project Type <div>{{ pro.type }}</div>
 </p>
 {% endif %}
 <a href="/myapp/project/addemployeetoproject/{{pro.id}}">Add</a>
+{% endblock %}

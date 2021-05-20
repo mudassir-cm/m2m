@@ -1,3 +1,5 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
 <h2>Project show</h2>
 {% if list %}
 <table>
@@ -10,7 +12,7 @@
         <td>{{ p.name }}</td>
         <td>{{ p.type }}</td>
         <td>
-            <a href="/myapp/project/edit/{{ p.id }}">Edit</a>
+            <a href="/myapp/project/update/{{ p.id }}">Edit</a>
         </td>
         <td>
             <a href="/myapp/project/delete/{{ p.id }}">Delete</a>
@@ -24,5 +26,4 @@
 {% else %}
 <h1>ther is no cast</h1>
 {% endif %}
-
-<a href="/">Home</a>
+{% endblock %}

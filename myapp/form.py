@@ -5,6 +5,10 @@ class EmployeeForm(forms.ModelForm):
     class Meta:
         model = Employee
         fields = '__all__' #['name', 'city']
+        error_messages = {
+            'name': {'required':'Mudassir name'},
+            'city': {'required': 'city'}
+        }
 
 class ProjectForm(forms.ModelForm):
     class Meta:
