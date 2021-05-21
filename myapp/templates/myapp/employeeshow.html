@@ -6,11 +6,13 @@
     <tr>
         <th>Name</th>
         <th>City</th>
+        <th>Email</th>
     </tr>
     {% for emp in list %}
     <tr>
         <td>{{ emp.name }}</td>
         <td>{{ emp.city }}</td>
+        <td>{{ emp.email }}</td>
         <td>
             <a href="/myapp/employee/update/{{ emp.id }}">Edit</a>
         </td>

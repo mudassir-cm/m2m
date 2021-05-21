@@ -1,12 +1,26 @@
 {% extends 'myapp/base.html' %}
+{% block head %}
+<style>
+
+.myclass{
+  color:blue;
+}
+</style>
+{% endblock %}
 {% block content %}
 
 <h2>Employee Create</h2>
 <form method="post" action="" novalidate enctype="multipart/form-data">
     {% csrf_token %}
-    <table>
-        {{ emp.as_table }}
-    </table>
+    {{ form.non_field_error }}
+{% for field in form %}
+<div>
+{{ field.label_tag }} {{ field }}
+{% for error in field.errors %}
+<span class="errorlist">{{ error }}</span>
+{% endfor %}
+</div>
+    {% endfor %}
 
         <input type="submit" value="Create">
 </form>

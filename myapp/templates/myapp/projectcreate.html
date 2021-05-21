@@ -1,22 +1,19 @@
 {% extends 'myapp/base.html' %}
 {% block content %}
 <h2>Project Create</h2>
-<form method="post" action="/myapp/project/create">
+<form method="post" action="/myapp/project/create" novalidate>
     {% csrf_token %}
+    {{ form.non_field_error }}
+    {% for field in form %}
     <div>
-        <label>Name</label>
-        <div>{{ pro.name }}</div>
+    {{ field.label_tag }} {{ field }}
+    {% for error in field.errors %}
+    <span class="errorlist">{{ error }}</span>
+    {% endfor %}
     </div>
-    <div>
-        <label>Type</label>
-        <div>{{ pro.type }}</div>
-    </div>
-    <div>
-        <label>Emploees</label>
-        <div>{{ pro.employees }}</div>
-    </div>
-    <div>
-        <input type="submit" value="Create">
-    </div>
+    {% endfor %}
+
+    <input type="submit" value="Submit">
+
 </form>
 {% endblock %}

@@ -12,23 +12,24 @@ def home(request):
 
 def projectcreate(request):
     if request.method == 'POST':
-        project = ProjectForm(request.POST)
-        project.save()
-        return redirect('/myapp/project/show')
+        form = ProjectForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/myapp/project/show')
     else:
-        pro = ProjectForm
-        return render(request, 'myapp/projectcreate.html', {'pro': pro})
+        form = ProjectForm
+    return render(request, 'myapp/projectcreate.html', {'form': form})
 
 def employeecreate(request):
     if request.method == 'POST':
-        emp = EmployeeForm(request.POST)
-        if emp.is_valid():
-            emp.save()
+        form = EmployeeForm(request.POST)
+        if form.is_valid():
+            form.save()
             messages.success(request, 'Employee created')
             return redirect('/myapp/employee/show')
     else:
-        emp = EmployeeForm
-    return render(request, 'myapp/employeecreate.html', {'emp': emp})
+        form = EmployeeForm
+    return render(request, 'myapp/employeecreate.html', {'form': form})
 
 def employeeshow(request):
     list = Employee.objects.all()
